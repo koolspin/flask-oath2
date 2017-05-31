@@ -11,6 +11,7 @@ Flask-Script==2.0.5
 Flask-SQLAlchemy==2.2
 Flask-User==0.6.11
 Flask-WTF==0.14.2
+Flask-OAuthlib==0.9.3
 itsdangerous==0.24
 Jinja2==2.9.6
 MarkupSafe==1.0

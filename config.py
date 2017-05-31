@@ -6,7 +6,9 @@ class Config:
     SQLALCHEMY_COMMIT_ON_TEARDOWN = True
     # Flask User stuff
     USER_APP_NAME = 'Flask Starter'
-    USER_ENABLE_CONFIRM_EMAIL = True
+    USER_ENABLE_CONFIRM_EMAIL = False
+    USER_ENABLE_LOGIN_WITHOUT_CONFIRM_EMAIL = True
+    USER_ENABLE_EMAIL = True
     USER_ENABLE_USERNAME = False
     USER_ENABLE_CHANGE_USERNAME = False
 
@@ -18,6 +20,8 @@ class Config:
     MAIL_USE_SSL = False
     MAIL_USE_TLS = False
 
+    OAUTH2_PROVIDER_TOKEN_EXPIRES_IN = 3600
+
     @staticmethod
     def init_app(app):
         pass
@@ -25,16 +29,16 @@ class Config:
 class ManageConfig(Config):
     DEBUG = True
     SQLALCHEMY_DATABASE_URI = os.environ.get('DEV_DATABASE_URL') or \
-                              'sqlite:///{0}'.format(os.path.join(os.getcwd(), 'flask_starter.db'))
+                              'sqlite:///{0}'.format(os.path.join(os.getcwd(), 'flask_oauth.db'))
 
 class DevelopmentConfig(Config):
     DEBUG = True
     SQLALCHEMY_DATABASE_URI = os.environ.get('DEV_DATABASE_URL') or \
-        'sqlite:///{0}'.format(os.path.join('/var/db', 'flask_starter_dev.db'))
+        'sqlite:///{0}'.format(os.path.join('/var/db', 'flask_oauth_dev.db'))
 
 class ProductionConfig(Config):
     SQLALCHEMY_DATABASE_URI = os.environ.get('DATABASE_URL') or \
-        'sqlite:///{0}'.format(os.path.join('/var/db', 'flask_starter_prod.db'))
+        'sqlite:///{0}'.format(os.path.join('/var/db', 'flask_oauth_prod.db'))
 
 config = {
     'manage': ManageConfig,
