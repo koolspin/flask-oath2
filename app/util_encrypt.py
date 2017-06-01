@@ -28,3 +28,9 @@ class UtilEncrypt(object):
     @staticmethod
     def _unpad(s):
         return s[:-ord(s[len(s)-1:])]
+
+    @staticmethod
+    def generate_random_string():
+        # 256 bits or 32 bytes
+        rand = Random.new().read(32)
+        return base64.b64encode(rand).decode('utf-8')

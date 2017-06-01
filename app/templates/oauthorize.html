@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="container">
+    <div class="page-header">
+        <h1>Oauth2 Authorization</h1>
+        <h6>Client: {{ client.client_id }}</h6>
+        <h6>User: {{ user.email }}</h6>
+
+          <form action="/oauth/implicit" method="post">
+            <p>Allow access?</p>
+            <input type="hidden" name="client_id" value="{{ client.client_id }}">
+            <input type="hidden" name="scope" value="{{ scopes|join(' ') }}">
+            <input type="hidden" name="response_type" value="{{ response_type }}">
+            <input type="hidden" name="redirect_uri" value="{{ redirect_uri }}">
+            {% if state %}
+            <input type="hidden" name="state" value="{{ state }}">
+            {% endif %}
+            <input type="submit" name="confirm" value="yes">
+            <input type="submit" name="confirm" value="no">
+          </form>
+
+
+    </div>
+</div>
+{% endblock %}

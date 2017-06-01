@@ -1,10 +1,10 @@
 from flask import Flask, current_app, jsonify, session, redirect
-from flask.ext.bootstrap import Bootstrap
-from flask.ext.sqlalchemy import SQLAlchemy
-from flask.ext.mail import Mail
+from flask_bootstrap import Bootstrap
+from flask_sqlalchemy import SQLAlchemy
+from flask_mail import Mail
 from flask_user import UserManager, SQLAlchemyAdapter
 from flask_oauthlib.provider import OAuth2Provider
-from flask.ext.user.forms import RegisterForm
+from flask_user.forms import RegisterForm
 from config import config
 
 mail = Mail()

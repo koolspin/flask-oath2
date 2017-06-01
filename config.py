@@ -4,6 +4,7 @@ basedir = os.path.abspath(os.path.dirname(__file__))
 class Config:
     SECRET_KEY = os.environ.get('SECRET_KEY') or '16846324-02b7-11e6-a62a-57ca2a71f28f'
     SQLALCHEMY_COMMIT_ON_TEARDOWN = True
+    SQLALCHEMY_TRACK_MODIFICATIONS = False
     # Flask User stuff
     USER_APP_NAME = 'Flask Starter'
     USER_ENABLE_CONFIRM_EMAIL = False
